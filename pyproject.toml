@@ -1,0 +1,31 @@
+[project]
+name = "book-converter"
+version = "0.1.0"
+description = "PDF to EPUB converter for Kindle reading"
+readme = "README.md"
+authors = [
+    { name = "chrojas", email = "christianrojas.datascience@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "ebooklib>=0.20",
+    "pymupdf>=1.27.1",
+    "rich>=14.3.3",
+    "typer>=0.24.1",
+]
+
+[project.scripts]
+book-converter = "book_converter.cli:app"
+
+[build-system]
+requires = ["uv_build>=0.9.26,<0.10.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0.2",
+    "pytest-cov>=7.0.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
